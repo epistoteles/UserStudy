@@ -11,4 +11,5 @@ types-setuptools
 pandas
 google_api_python_client
 protobuf
-click
+streamlit==1.4.0
+click==8
