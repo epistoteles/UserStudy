@@ -121,7 +121,9 @@ Which political partisanship does the author of the comment likely have?
 
 #### How to decide
 What if the author is quoting someone else? What if irony is being used? 
+
 Judging comments on these scales can be challenging, and there are no right answers. 
+
 When in doubt, simply follow your gut instinct.
 """
 )
