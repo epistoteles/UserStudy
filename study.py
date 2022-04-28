@@ -58,7 +58,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
 def add_row_to_gsheet(gsheet_connector, row) -> None:
     gsheet_connector.values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME_RESPONSES}!A:V",
+        range=f"{SHEET_NAME_RESPONSES}!A:W",
         body=dict(values=row),
         valueInputOption="USER_ENTERED",
     ).execute()
@@ -129,6 +129,7 @@ When in doubt, simply follow your gut instinct.
 )
 
 with st.form(key="annotation", clear_on_submit=True):
+    start = datetime.now(tz=None)
     data = get_data(gsheet_connector).sample(n=5)
     st.subheader("Comment 1:")
     st.markdown(data.iloc[0]["comment_markdown"], unsafe_allow_html=True)
@@ -163,12 +164,14 @@ with st.form(key="annotation", clear_on_submit=True):
     submitted = st.form_submit_button(label="Submit")
 
 if submitted:
+    end = datetime.now(tz=None)
     add_row_to_gsheet(
         gsheet_connector,
         [
             [
                 st.session_state.session_id,
-                str(datetime.now(tz=None)),
+                str(end),
+                str(end - start),
                 data.iloc[0]["id"],
                 civility_1,
                 political_1,
