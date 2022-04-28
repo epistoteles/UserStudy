@@ -89,7 +89,7 @@ Thank you for taking part in this study and helping us make social media more di
 
 You are presented with **five** comments from Reddit. These comments will be shown **in context** - that means you also see up to two previous comments that are being replied to.
 
-Here is an example:
+Here is an example of a comment in context:
 
 > How...how could you think that? Every article for the last 4 months about Trump have been against him. Every move he makes is criticized. One glance from his wife makes him an abuser. His son looking bored makes him a psycho school shooter. It's literally non-stop negative media coverage.
 >> This is why Trump won, though. Who cares about all the small shit meaningless memes you just quoted? What about the actually bad shit he has said (and done)?
@@ -105,20 +105,24 @@ How civil/uncivil is the comment?
 - **50**: somewhat uncivil  (“Go annoy someone else with your stupid theories.”)
 - **100**: completely uncivil  (“Fuck you, you son of a bitch! I hope you die.”)
 
-##### How political
-Here you are supposed to score how closely the opinion expressed in the comment is related to politics.
+##### Politicalness
+Is the comment related to politics?
 - **0**: Not political at all (_"I like ice cream"_)
 - **50**: Somewhat political (_"And I thought free speech was important ... Lol"_)
 - **100**: Definitely political (_"Aside from W getting reelected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
 
 ##### Partisanship
+Which political partisanship does the author of the comment likely have?
 - **-50**: extreme left
 - **-25**: left
 - **0**: center
 - **25**: right
 - **50**: extreme right
 
-Judging comments on these scales can be challenging, and there are no right answers. Simply follow your gut instinct.
+#### How to decide
+What if the author is quoting someone else? What if irony is being used? 
+Judging comments on these scales can be challenging, and there are no right answers. 
+When in doubt, simply follow your gut instinct.
 """
 )
 
@@ -127,32 +131,32 @@ with st.form(key="annotation", clear_on_submit=True):
     st.subheader("Comment 1:")
     st.markdown(data.iloc[0]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
-    civility_1 = cols[0].slider("How civil:", 0, 100, 50, key="civility_1")
-    political_1 = cols[1].slider("How political:", 0, 100, 50, key="political_1")
+    civility_1 = cols[0].slider("Civility:", 0, 100, 50, key="civility_1")
+    political_1 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_1")
     partisan_1 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_1")
     st.subheader("Comment 2:")
     st.markdown(data.iloc[1]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
-    civility_2 = cols[0].slider("How civil:", 0, 100, 50, key="civility_2")
-    political_2 = cols[1].slider("How political:", 0, 100, 50, key="political_2")
+    civility_2 = cols[0].slider("Civility:", 0, 100, 50, key="civility_2")
+    political_2 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_2")
     partisan_2 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_2")
     st.subheader("Comment 3:")
     st.markdown(data.iloc[2]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
-    civility_3 = cols[0].slider("How civil:", 0, 100, 50, key="civility_3")
-    political_3 = cols[1].slider("How political:", 0, 100, 50, key="political_3")
+    civility_3 = cols[0].slider("Civility:", 0, 100, 50, key="civility_3")
+    political_3 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_3")
     partisan_3 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_3")
     st.subheader("Comment 4:")
     st.markdown(data.iloc[3]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
-    civility_4 = cols[0].slider("How civil:", 0, 100, 50, key="civility_4")
-    political_4 = cols[1].slider("How political:", 0, 100, 50, key="political_4")
+    civility_4 = cols[0].slider("Civility:", 0, 100, 50, key="civility_4")
+    political_4 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_4")
     partisan_4 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_4")
     st.subheader("Comment 5:")
     st.markdown(data.iloc[4]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
-    civility_5 = cols[0].slider("How civil:", 0, 100, 50, key="civility_5")
-    political_5 = cols[1].slider("How political:", 0, 100, 50, key="political_5")
+    civility_5 = cols[0].slider("Civility:", 0, 100, 50, key="civility_5")
+    political_5 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_5")
     partisan_5 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_5")
     submitted = st.form_submit_button(label="Submit")
 
