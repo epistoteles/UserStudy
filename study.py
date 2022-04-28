@@ -86,14 +86,14 @@ You are presented with five comments from Reddit. You are asked to rate the comm
 Here you are supposed to score how closely the opinion expressed in the comment is related to politics.
 - **0**: Not political at all (_"I like ice cream"_)
 - **50**: Somewhat political (_"And I thought free speech was important ... Lol"_)
-- *100*: Definitely political (_"Aside from W getting reelected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
+- **100**: Definitely political (_"Aside from W getting reelected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
 
 #### Partisanship
-- -50: extreme left
-- -25: left
-- 0: center
-- 25: right
-- 50: extreme right
+- **-50**: extreme left
+- **-25**: left
+- **0**: center
+- **25**: right
+- **50**: extreme right
 
 Judging comments on these scales can be challenging, and there are no right answers. Simply follow your gut instinct.
 """)
