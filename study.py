@@ -61,7 +61,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
 def add_row_to_gsheet(gsheet_connector, row) -> None:
     gsheet_connector.values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME_RESPONSES}!A:J",
+        range=f"{SHEET_NAME_RESPONSES}!A:O",
         body=dict(values=row),
         valueInputOption="USER_ENTERED",
     ).execute()
@@ -86,21 +86,21 @@ data = get_data(gsheet_connector).sample(n=5)
 with form:
     st.write(data[0]['comment'])
     cols = st.columns(2)
-    value_a_1 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_a_1 = cols.iloc[1].slider("Partisanship:", -50, 50, 0)
     value_b_1 = cols[1].slider("How political:", 0, 100, 50)
-    st.write(data[1]['comment'])
+    st.write(data.iloc[1]['comment'])
     cols = st.columns(2)
     value_a_2 = cols[1].slider("Partisanship:", -50, 50, 0)
     value_b_2 = cols[1].slider("How political:", 0, 100, 50)
-    st.write(data[2]['comment'])
+    st.write(data.iloc[2]['comment'])
     cols = st.columns(2)
     value_a_3 = cols[1].slider("Partisanship:", -50, 50, 0)
     value_b_3 = cols[1].slider("How political:", 0, 100, 50)
-    st.write(data[3]['comment'])
+    st.write(data.iloc[3]['comment'])
     cols = st.columns(2)
     value_a_4 = cols[1].slider("Partisanship:", -50, 50, 0)
     value_b_4 = cols[1].slider("How political:", 0, 100, 50)
-    st.write(data[4]['comment'])
+    st.write(data.iloc[4]['comment'])
     cols = st.columns(2)
     value_a_5 = cols[1].slider("Partisanship:", -50, 50, 0)
     value_b_5 = cols[1].slider("How political:", 0, 100, 50)
@@ -110,11 +110,11 @@ with form:
 if submitted:
     add_row_to_gsheet(
         gsheet_connector,
-        [[data[0]['id'], value_a_1, value_b_1,
-          data[1]['id'], value_a_2, value_b_2,
-          data[2]['id'], value_a_3, value_b_3,
-          data[3]['id'], value_a_4, value_b_4,
-          data[4]['id'], value_a_5, value_b_5]],
+        [[data.iloc[0]['id'], value_a_1, value_b_1,
+          data.iloc[1]['id'], value_a_2, value_b_2,
+          data.iloc[2]['id'], value_a_3, value_b_3,
+          data.iloc[3]['id'], value_a_4, value_b_4,
+          data.iloc[4]['id'], value_a_5, value_b_5]],
     )
     st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
