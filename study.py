@@ -17,7 +17,7 @@ GSHEET_URL = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}"
 def connect_to_gsheet():
     # Create a connection object.
     credentials = service_account.Credentials.from_service_account_info(
-        json.load(open('key.json', 'rb')),
+        st.secrets["gcp_service_account"],
         scopes=[SCOPE],
     )
 
