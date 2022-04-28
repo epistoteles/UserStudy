@@ -69,7 +69,7 @@ st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
 # create unique session ID per connection
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid1())
-    st.session.start = datetime.now(tz=None)
+    st.session_state.start = datetime.now(tz=None)
 
 gsheet_connector = connect_to_gsheet()
 
@@ -164,14 +164,14 @@ with st.form(key="annotation", clear_on_submit=True):
     submitted = st.form_submit_button(label="Submit")
 
 if submitted:
-    st.session.end = datetime.now(tz=None)
+    st.session_state.end = datetime.now(tz=None)
     add_row_to_gsheet(
         gsheet_connector,
         [
             [
                 st.session_state.session_id,
-                str(st.session.end),
-                str(st.session.end - st.session.start),
+                str(st.session_state.end),
+                str(st.session_state.end - st.session_state.start),
                 data.iloc[0]["id"],
                 civility_1,
                 political_1,
@@ -197,4 +197,4 @@ if submitted:
     )
     st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
-    st.session.start = datetime.now(tz=None)
+    st.session_state.start = datetime.now(tz=None)
