@@ -81,23 +81,37 @@ st.title("🗨️ Demo User Study")
 
 st.markdown(
     """
-Hello! Thank you for taking part in this study and helping us make social media more diverse and equitable.
+#### Hello! 
 
-You are presented with five comments from Reddit. These comments will be shown in context - that means you also see the past two comments that are being replied to.
+Thank you for taking part in this study and helping us make social media more diverse and equitable.
+
+#### How it works
+
+You are presented with **five** comments from Reddit. These comments will be shown **in context** - that means you also see up to two previous comments that are being replied to.
+
+Here is an example:
 
 > How...how could you think that? Every article for the last 4 months about Trump have been against him. Every move he makes is criticized. One glance from his wife makes him an abuser. His son looking bored makes him a psycho school shooter. It's literally non-stop negative media coverage.
 >> This is why Trump won, though. Who cares about all the small shit meaningless memes you just quoted? What about the actually bad shit he has said (and done)?
 >>> A lot of people would disagree on what is bad shit said and done however.
 
-##### You are asked to rate **only the last comment** based on two dimensions:
+You are asked to rate **only the last comment** (here: _"A lot of people would disagree on what is bad shit said and done however."_)
 
-#### How political
+#### Sliders
+
+##### Civility
+How civil/uncivil is the comment?
+- **0**: completely civil  (“I understand your opinion but must disagree.”)
+- **50**: somewhat uncivil  (“Go annoy someone else with your stupid theories.”)
+- **100**: completely uncivil  (“Fuck you, you son of a bitch! I hope you die.”)
+
+##### How political
 Here you are supposed to score how closely the opinion expressed in the comment is related to politics.
 - **0**: Not political at all (_"I like ice cream"_)
 - **50**: Somewhat political (_"And I thought free speech was important ... Lol"_)
 - **100**: Definitely political (_"Aside from W getting reelected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
 
-#### Partisanship
+##### Partisanship
 - **-50**: extreme left
 - **-25**: left
 - **0**: center
