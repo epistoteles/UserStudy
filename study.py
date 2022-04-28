@@ -5,6 +5,8 @@ import streamlit as st
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import HttpRequest
+from datetime import datetime
+import uuid
 
 SCOPE = "https://www.googleapis.com/auth/spreadsheets"
 SPREADSHEET_ID = "1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU"
@@ -42,7 +44,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
         gsheet_connector.values()
         .get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"{SHEET_NAME_DATA}!A:C",
+            range=f"{SHEET_NAME_DATA}!A:B",
         )
         .execute()
     )
@@ -56,13 +58,17 @@ def get_data(gsheet_connector) -> pd.DataFrame:
 def add_row_to_gsheet(gsheet_connector, row) -> None:
     gsheet_connector.values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME_RESPONSES}!A:T",
+        range=f"{SHEET_NAME_RESPONSES}!A:V",
         body=dict(values=row),
         valueInputOption="USER_ENTERED",
     ).execute()
 
 
 st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
+
+# create unique session ID per connection
+if "session_id" not in st.session_state:
+    st.session_state.session_id = str(uuid.uuid1())
 
 gsheet_connector = connect_to_gsheet()
 
@@ -136,6 +142,8 @@ if submitted:
         gsheet_connector,
         [
             [
+                st.session_state.session_id,
+                str(datetime.now(tz=None)),
                 data.iloc[0]["id"],
                 civility_1,
                 political_1,
