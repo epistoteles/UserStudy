@@ -78,12 +78,9 @@ st.sidebar.write(
     "please contact acme@acme.org."
 )
 
-form = st.form(key="annotation")
-
 data = get_data(gsheet_connector).sample(n=5)
 
-
-with form:
+with st.form(key="annotation"):
     st.write(data.iloc[0]['comment'])
     cols = st.columns(2)
     value_a_1 = cols.iloc[1].slider("Partisanship:", -50, 50, 0)
