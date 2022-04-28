@@ -83,10 +83,10 @@ Hello! Thank you for taking part in this study and helping us make social media 
 You are presented with five comments from Reddit. You are asked to rate the comments based on two dimensions:
 
 #### How political
-- 0: No political leaning apparent (_"I like ice cream"_)
-- 33: Political leaning somewhat visible (_"Bidens initiative was destined to fail from the beginning."_)
-- 66: Political leaning apparent (_"Aside from W getting re elected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
-- 100: Political leaning absolutely clear (_"Being a democrat myself I have to disagree with you here."_)
+Here you are supposed to score how closely the opinion expressed in the comment is related to politics.
+- 0: Not political at all (_"I like ice cream"_)
+- 50: Somewhat political (_"And I thought free speech was important ... Lol"_)
+- 100: Definitely political (_"Aside from W getting reelected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
 
 #### Partisanship
 - -50: extreme left
@@ -95,6 +95,7 @@ You are presented with five comments from Reddit. You are asked to rate the comm
 - 25: right
 - 50: extreme right
 
+Judging comments on these scales can be challenging, and there are no right answers. Simply follow your gut instinct.
 """)
 
 with st.form(key="annotation", clear_on_submit=True):
