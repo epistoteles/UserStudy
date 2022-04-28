@@ -1,19 +1,7 @@
-# aieng-template
-aieng template repo, the static code checker runs on python3.8
+## UserStudy running as streamlit demo
 
-# Installing dependencies
-```
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-# using pre-commit hooks
-To check your code at commit time
-```
-pre-commit install
-```
-
-You can also get pre-commit to fix your code
-```
-pre-commit run
-```
+If you want to host your own instance of this study, you need:
+- a GCP profile
+- a service account crated with that profile
+- a google sheets document what you have shared with that service account
+- the json key of that service account
