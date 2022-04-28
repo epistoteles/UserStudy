@@ -83,7 +83,7 @@ data = get_data(gsheet_connector).sample(n=5)
 with st.form(key="annotation"):
     st.write(data.iloc[0]['comment'])
     cols = st.columns(2)
-    value_a_1 = cols.iloc[1].slider("Partisanship:", -50, 50, 0)
+    value_a_1 = cols[1].slider("Partisanship:", -50, 50, 0)
     value_b_1 = cols[1].slider("How political:", 0, 100, 50)
     st.write(data.iloc[1]['comment'])
     cols = st.columns(2)
