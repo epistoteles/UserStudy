@@ -66,9 +66,9 @@ def add_row_to_gsheet(gsheet_connector, row) -> None:
     ).execute()
 
 
-gsheet_connector = connect_to_gsheet()
-
 st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
+
+gsheet_connector = connect_to_gsheet()
 
 st.sidebar.write(
     "This is a user study conducted by ACME Corp. If you have any questions "
