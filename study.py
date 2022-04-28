@@ -138,8 +138,3 @@ if submitted:
     )
     st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
-
-expander = st.expander("See all records")
-with expander:
-    st.write(f"Open original [Google Sheet]({GSHEET_URL})")
-    st.dataframe(get_data(gsheet_connector))
