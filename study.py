@@ -9,7 +9,8 @@ import json
 
 SCOPE = "https://www.googleapis.com/auth/spreadsheets"
 SPREADSHEET_ID = "1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU"
-SHEET_NAME = "Database"
+SHEET_NAME_DATA = "Database"
+SHEET_NAME_RESPONSES = "Responses"
 GSHEET_URL = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}"
 
 
@@ -46,7 +47,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
         gsheet_connector.values()
         .get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"{SHEET_NAME}!A:E",
+            range=f"{SHEET_NAME_DATA}!A:B",
         )
         .execute()
     )
@@ -60,44 +61,62 @@ def get_data(gsheet_connector) -> pd.DataFrame:
 def add_row_to_gsheet(gsheet_connector, row) -> None:
     gsheet_connector.values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME}!A:E",
+        range=f"{SHEET_NAME_RESPONSES}!A:J",
         body=dict(values=row),
         valueInputOption="USER_ENTERED",
     ).execute()
 
 
-st.set_page_config(page_title="Bug report", page_icon="🐞", layout="centered")
+st.set_page_config(page_title="User study", page_icon="🗨️", layout="centered")
 
-st.title("🐞 Bug report!")
+st.title("🗨️ Demo User Study")
 
 gsheet_connector = connect_to_gsheet()
 
 st.sidebar.write(
-    "This app shows how a Streamlit app can interact easily with a "
-    f"[Google Sheet]({GSHEET_URL}) to read or store data."
+    "This is a user study conducted by ACME Corp. If you have any questions "
+    "please contact acme@acme.org."
 )
 
 form = st.form(key="annotation")
 
+data = get_data(gsheet_connector).sample(n=5)
+
+
 with form:
-    cols = st.columns((1, 1))
-    author = cols[0].text_input("Report author:")
-    bug_type = cols[1].selectbox(
-        "Bug type:", ["Front-end", "Back-end", "Data related", "404"], index=2
-    )
-    comment = st.text_area("Comment:")
+    st.write(data[0]['comment'])
     cols = st.columns(2)
-    date = cols[0].date_input("Bug date occurrence:")
-    bug_severity = cols[1].slider("Bug severity:", 1, 5, 2)
+    value_a_1 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_b_1 = cols[1].slider("How political:", 0, 100, 50)
+    st.write(data[1]['comment'])
+    cols = st.columns(2)
+    value_a_2 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_b_2 = cols[1].slider("How political:", 0, 100, 50)
+    st.write(data[2]['comment'])
+    cols = st.columns(2)
+    value_a_3 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_b_3 = cols[1].slider("How political:", 0, 100, 50)
+    st.write(data[3]['comment'])
+    cols = st.columns(2)
+    value_a_4 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_b_4 = cols[1].slider("How political:", 0, 100, 50)
+    st.write(data[4]['comment'])
+    cols = st.columns(2)
+    value_a_5 = cols[1].slider("Partisanship:", -50, 50, 0)
+    value_b_5 = cols[1].slider("How political:", 0, 100, 50)
     submitted = st.form_submit_button(label="Submit")
 
 
 if submitted:
     add_row_to_gsheet(
         gsheet_connector,
-        [[author, bug_type, comment, str(date), bug_severity]],
+        [[data[0]['id'], value_a_1, value_b_1,
+          data[1]['id'], value_a_2, value_b_2,
+          data[2]['id'], value_a_3, value_b_3,
+          data[3]['id'], value_a_4, value_b_4,
+          data[4]['id'], value_a_5, value_b_5]],
     )
-    st.success("Thanks! Your bug was recorded.")
+    st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
 
 expander = st.expander("See all records")
