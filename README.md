@@ -2,7 +2,8 @@
 
 This repository demonstrates how you can create a free & simple publicly hosted user study with streamlit that writes the results to a Google Sheets document :)
 
-Try it out here: https://share.streamlit.io/epistoteles/userstudy/main/study.py
+Try out submitting answers here: https://share.streamlit.io/epistoteles/userstudy/main/study.py
+And watch the results show up in this document: https://docs.google.com/spreadsheets/d/1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU/edit?usp=sharing
 
 ### How to make your own version of this
 
