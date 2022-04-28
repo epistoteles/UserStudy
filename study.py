@@ -69,6 +69,7 @@ st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
 # create unique session ID per connection
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid1())
+start = datetime.now(tz=None)
 
 gsheet_connector = connect_to_gsheet()
 
@@ -129,7 +130,6 @@ When in doubt, simply follow your gut instinct.
 )
 
 with st.form(key="annotation", clear_on_submit=True):
-    start = datetime.now(tz=None)
     data = get_data(gsheet_connector).sample(n=5)
     st.subheader("Comment 1:")
     st.markdown(data.iloc[0]["comment_markdown"], unsafe_allow_html=True)
@@ -197,3 +197,4 @@ if submitted:
     )
     st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
+    start = datetime.now(tz=None)
