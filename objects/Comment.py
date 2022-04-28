@@ -25,7 +25,9 @@ class BaseComment:
     civility: float = -1.0  # -1 means undefined
 
     def __post_init__(self):
-        self.permalink = f"/r/{self.subreddit}/comments/{self.link_id.split('_')[1]}/any-text-here/{self.id}"
+        self.permalink = (
+            f"/r/{self.subreddit}/comments/{self.link_id.split('_')[1]}/any-text-here/{self.id}"
+        )
         self.body = " ".join(self.body.split())  # removes duplicate spaces, newlines, etc.
 
     def __repr__(self):

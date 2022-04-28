@@ -138,5 +138,6 @@ dmypy.json
 *.json
 *.toml
 
-# the pickled demo file
+# the demo file
 *.pickle
+*.csv
