@@ -84,7 +84,7 @@ data = get_data(gsheet_connector).sample(n=5)
 
 
 with form:
-    st.write(data[0]['comment'])
+    st.write(data.iloc[1][0]['comment'])
     cols = st.columns(2)
     value_a_1 = cols.iloc[1].slider("Partisanship:", -50, 50, 0)
     value_b_1 = cols[1].slider("How political:", 0, 100, 50)
