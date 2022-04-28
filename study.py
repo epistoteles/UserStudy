@@ -101,9 +101,9 @@ You are asked to rate **only the last comment** (here: _"A lot of people would d
 
 ##### Civility
 How civil/uncivil is the comment?
-- **0**: completely civil  (“I understand your opinion but must disagree.”)
-- **50**: somewhat uncivil  (“Go annoy someone else with your stupid theories.”)
-- **100**: completely uncivil  (“Fuck you, you son of a bitch! I hope you die.”)
+- **0**: completely civil  (_“I understand your opinion but must disagree.”_)
+- **50**: somewhat uncivil  (_“Go annoy someone else with your stupid theories.”_)
+- **100**: completely uncivil  (_“Fuck you, you son of a bitch! I hope you die.”_)
 
 ##### Politicalness
 Is the comment related to politics?
