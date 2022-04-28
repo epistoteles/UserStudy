@@ -1,4 +1,7 @@
-## UserStudy running as streamlit demo
+<h1 align="center">User Study Template Repository</h1>
+<h4 align="center">Streamlit ♥️ Google Sheets</h4>
+
+## About
 
 This repository demonstrates how you can create a free & simple publicly hosted user study with streamlit that writes the results to a Google Sheets document :)
 
@@ -6,7 +9,7 @@ Try out submitting answers here: https://share.streamlit.io/epistoteles/userstud
 
 And watch the results show up in this document: https://docs.google.com/spreadsheets/d/1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU/edit?usp=sharing
 
-### How to make your own version of this
+## How-to
 
 1. Fork this repository (the fork has to be public).
 2. Create a copy of the Google Sheets template used in this repository of which you are the owner.
