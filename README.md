@@ -5,7 +5,7 @@ This repository demonstrates how you can create a free & simple publicly hosted 
 ### How to make your own version of this
 
 1. Fork this repository (the fork has to be public).
-2. Create a copy of the Google Sheets template of which you are the owner.
+2. Create a copy of the Google Sheets template used in this repository of which you are the owner.
 3. Copy the ID from the url of your Google Sheets document and replace `SPREADSHEET_ID` inside `study.py` with it.
 4. Create a GCP profile if you don't have one (it doesn't matter who owns the GCP account).
 5. Create a new service account (this is a virtual GCP entity that sends requests on your behalf).
@@ -18,3 +18,4 @@ This repository demonstrates how you can create a free & simple publicly hosted 
 12. Connect streamlit with the GitHub account that owns the fork.
 13. Enter the details of your forked repository.
 14. Under 'Advanced Settings...', paste the contents of your `secrets.toml` file as secret.
+15. Done! Your streamlit app will be deployed and you can simply share the link.
