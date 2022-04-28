@@ -131,5 +131,9 @@ dmypy.json
 # Intellij
 .idea/
 
-# JSON key
-key.json
+# streamlit
+.streamlit/
+
+# any kind of keys
+*.json
+*.toml
