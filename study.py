@@ -47,7 +47,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
         gsheet_connector.values()
         .get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"{SHEET_NAME_DATA}!A:B",
+            range=f"{SHEET_NAME_DATA}!A:C",
         )
         .execute()
     )
@@ -67,17 +67,36 @@ def add_row_to_gsheet(gsheet_connector, row) -> None:
     ).execute()
 
 
-st.set_page_config(page_title="User study", page_icon="🗨️", layout="centered")
-
-st.title("🗨️ Demo User Study")
-
 gsheet_connector = connect_to_gsheet()
+
+st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
 
 st.sidebar.write(
     "This is a user study conducted by ACME Corp. If you have any questions "
     "please contact acme@acme.org."
 )
 
+st.title("🗨️ Demo User Study")
+
+st.markdown("""
+Hello! Thank you for taking part in this study and helping us make social media more diverse and equitable.
+
+You are presented with five comments from Reddit. You are asked to rate the comments based on two dimensions:
+
+#### How political
+- 0: No political leaning apparent (_"I like ice cream"_)
+- 33: Political leaning somewhat visible (_"Bidens initiative was destined to fail from the beginning."_)
+- 66: Political leaning apparent (_"Aside from W getting re elected as an incumbent, the GOP hasn't won a majority of the vote since Bush Sr. in 1988."_)
+- 100: Political leaning absolutely clear (_"Being a democrat myself I have to disagree with you here."_)
+
+#### Partisanship
+- -50: extreme left
+- -25: left
+- 0: center
+- 25: right
+- 50: extreme right
+
+""")
 
 with st.form(key="annotation", clear_on_submit=True):
     data = get_data(gsheet_connector).sample(n=5)
@@ -107,7 +126,6 @@ with st.form(key="annotation", clear_on_submit=True):
     value_a_5 = cols[0].slider("Partisanship:", -50, 50, 0, key="value_a_5")
     value_b_5 = cols[1].slider("How political:", 0, 100, 50, key="value_b_5")
     submitted = st.form_submit_button(label="Submit")
-
 
 if submitted:
     add_row_to_gsheet(
