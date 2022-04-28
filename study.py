@@ -84,7 +84,12 @@ st.markdown(
 Hello! Thank you for taking part in this study and helping us make social media more diverse and equitable.
 
 You are presented with five comments from Reddit. These comments will be shown in context - that means you also see the past two comments that are being replied to.
-You are asked to rate **only the last comment** based on two dimensions:
+
+> How...how could you think that? Every article for the last 4 months about Trump have been against him. Every move he makes is criticized. One glance from his wife makes him an abuser. His son looking bored makes him a psycho school shooter. It's literally non-stop negative media coverage.
+>> This is why Trump won, though. Who cares about all the small shit meaningless memes you just quoted? What about the actually bad shit he has said (and done)?
+>>> A lot of people would disagree on what is bad shit said and done however.
+
+##### You are asked to rate **only the last comment** based on two dimensions:
 
 #### How political
 Here you are supposed to score how closely the opinion expressed in the comment is related to politics.

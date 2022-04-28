@@ -32,6 +32,8 @@ markdown = [
             lambda x: x.body
             if isinstance(x, Comment)
             else f"{x.title}  \n{x.body}"
+            if isinstance(x, Submission) and x.body != ""
+            else f"{x.title}"
             if isinstance(x, Submission)
             else "",
             thread,
