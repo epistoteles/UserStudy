@@ -137,3 +137,6 @@ dmypy.json
 # any kind of keys
 *.json
 *.toml
+
+# the pickled demo file
+*.pickle
