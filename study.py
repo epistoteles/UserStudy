@@ -78,9 +78,9 @@ st.sidebar.write(
     "please contact acme@acme.org."
 )
 
-data = get_data(gsheet_connector).sample(n=5)
 
-with st.form(key="annotation"):
+with st.form(key="annotation", clear_on_submit=True):
+    data = get_data(gsheet_connector).sample(n=5)
     st.subheader("Comment 1:")
     st.write(data.iloc[0]['comment'])
     cols = st.columns(2)
