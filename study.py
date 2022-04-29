@@ -148,24 +148,28 @@ with st.form(key="annotation", clear_on_submit=True):
     civility_1 = cols[0].slider("Civility:", 0, 100, 50, key="civility_1")
     political_1 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_1")
     partisan_1 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_1")
+    st.markdown("---"),
     st.subheader("Comment 2:")
     st.markdown(data.iloc[1]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
     civility_2 = cols[0].slider("Civility:", 0, 100, 50, key="civility_2")
     political_2 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_2")
     partisan_2 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_2")
+    st.markdown("---"),
     st.subheader("Comment 3:")
     st.markdown(data.iloc[2]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
     civility_3 = cols[0].slider("Civility:", 0, 100, 50, key="civility_3")
     political_3 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_3")
     partisan_3 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_3")
+    st.markdown("---"),
     st.subheader("Comment 4:")
     st.markdown(data.iloc[3]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
     civility_4 = cols[0].slider("Civility:", 0, 100, 50, key="civility_4")
     political_4 = cols[1].slider("Politicalness:", 0, 100, 50, key="political_4")
     partisan_4 = cols[2].slider("Partisanship:", -50, 50, 0, key="partisan_4")
+    st.markdown("---"),
     st.subheader("Comment 5:")
     st.markdown(data.iloc[4]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
