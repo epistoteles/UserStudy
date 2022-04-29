@@ -7,7 +7,7 @@ This repository demonstrates how you can create a free & simple publicly hosted 
 
 Try out submitting answers here: https://share.streamlit.io/epistoteles/userstudy/main/study.py
 
-And watch the results show up in this document (_Responses_): https://docs.google.com/spreadsheets/d/1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU/edit?usp=sharing
+And watch the results show up in this document (_Responses_): https://docs.google.com/spreadsheets/d/1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU/edit#gid=1622526439
 
 Besides the answers themselves the app currently logs a unique session ID per connection, a timestamp, and how long it took the user to respond.
 
