@@ -43,7 +43,18 @@ markdown = [
 ]
 
 # format strings as indented quotes and join
-markdown = ["  \n".join([f"> {c3}", f">> {c2}", f">>> {c1}"]) for c1, c2, c3 in markdown]
+markdown = [
+    "  \n".join(
+        [
+            "---",
+            f"> {c3}",
+            f">> {c2}",
+            f'>>> <mark style="background-color: #fffcd9;">{c1}</mark>',
+            "---",
+        ]
+    )
+    for c1, c2, c3 in markdown
+]
 
 # create dataframe with ids and comments
 result = pd.DataFrame({"id": ids, "comment_markdown": markdown})
