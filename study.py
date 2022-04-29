@@ -84,7 +84,7 @@ st.title("🗨️ Demo User Study")
 
 st.markdown(
     """
-#### Hello! 
+#### Hello! 👋
 
 Thank you for taking part in this study and helping us make social media more diverse and equitable.
 
@@ -92,13 +92,13 @@ Thank you for taking part in this study and helping us make social media more di
 
 You are presented with **five** comments from Reddit. These comments will be shown **in context** - that means you also see up to two previous comments that are being replied to.
 
-Here is an example of a comment in context:
+Here is an example of a single comment in context:
 
 ---
 
 > How...how could you think that? Every article for the last 4 months about Trump have been against him. Every move he makes is criticized. One glance from his wife makes him an abuser. His son looking bored makes him a psycho school shooter. It's literally non-stop negative media coverage.
 >> This is why Trump won, though. Who cares about all the small shit meaningless memes you just quoted? What about the actually bad shit he has said (and done)?
->>> A lot of people would disagree on what is bad shit said and done however.
+>>> <mark>A lot of people would disagree on what is bad shit said and done however.</mark>
 
 ---
 
@@ -106,7 +106,9 @@ You are asked to rate **only the last comment** (here: _"A lot of people would d
 
 #### Sliders
 
-Please set the sliders under each comment to a position you think is appropriate. It does not matter that much where exactly you place the slider - it is more important that the relation of the slider positions among the five comments makes sense.
+Please set the sliders under each comment to a position you think is appropriate. 
+
+It does not matter that much where exactly you place the slider - it is more important that the relation of the slider positions among the five comments makes sense.
 
 ##### Civility
 How civil/uncivil is the comment?
@@ -134,7 +136,8 @@ What if the author is quoting someone else? What if irony is being used?
 Judging comments on these scales can be challenging, and there are no right answers. 
 
 When in doubt, simply follow your gut instinct.
-"""
+""",
+    unsafe_allow_html=True,
 )
 
 with st.form(key="annotation", clear_on_submit=True):
