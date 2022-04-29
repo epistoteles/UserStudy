@@ -102,7 +102,7 @@ Here is an example of a single comment in context:
 
 ---
 
-You are asked to rate **only the last comment** (here: _"A lot of people would disagree on what is bad shit said and done however."_)
+You are asked to rate **only the last comment** which is highlighted in yellow.
 
 #### Sliders
 
