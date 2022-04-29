@@ -32,7 +32,8 @@ And watch the results show up in this document (_Responses_): https://docs.googl
 
 All assumptions about how the study works are included in the `study.py` file. This includes
 - which fields/sliders there are
-- how to pull and present the samples
+- how to pull and present the samples from the Google Sheet
 - where to write the answers to
+
 The code is sensitive to what columns are named in _Database_ and what names individual sheets have (_Database_, _Responses_).
-Feel free to play around with the code in study.py. 
+Feel free to play around with the code in study.py.  
