@@ -102,7 +102,7 @@ Here is an example of a single comment in context:
 
 ---
 
-You are asked to rate **only the last comment** which is highlighted in yellow.
+For each mini-thread, you are asked to rate **only the last comment**, which will be highlighted in yellow.
 
 #### Sliders
 
