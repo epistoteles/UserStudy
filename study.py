@@ -39,12 +39,12 @@ def connect_to_gsheet():
     return gsheet_connector
 
 
-def get_data(gsheet_connector) -> pd.DataFrame:
+def get_data(gsheet_connector, col_range) -> pd.DataFrame:
     values = (
         gsheet_connector.values()
         .get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"{SHEET_NAME_DATA}!A:B",
+            range=f"{SHEET_NAME_DATA}!{col_range}",
         )
         .execute()
     )
@@ -55,10 +55,10 @@ def get_data(gsheet_connector) -> pd.DataFrame:
     return df
 
 
-def add_row_to_gsheet(gsheet_connector, row) -> None:
+def add_row_to_gsheet(gsheet_connector, row, col_range) -> None:
     gsheet_connector.values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=f"{SHEET_NAME_RESPONSES}!A:W",
+        range=f"{SHEET_NAME_RESPONSES}!A{col_range}",
         body=dict(values=row),
         valueInputOption="USER_ENTERED",
     ).execute()
@@ -69,6 +69,8 @@ st.set_page_config(page_title="User study", page_icon="🗨️", layout="wide")
 # create unique session ID per connection
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid1())
+
+if "start" not in st.session_state:
     st.session_state.start = datetime.now(tz=None)
 
 gsheet_connector = connect_to_gsheet()
@@ -130,7 +132,7 @@ When in doubt, simply follow your gut instinct.
 )
 
 with st.form(key="annotation", clear_on_submit=True):
-    data = get_data(gsheet_connector).sample(n=5)
+    data = get_data(gsheet_connector, col_range="A:B").sample(n=5)
     st.subheader("Comment 1:")
     st.markdown(data.iloc[0]["comment_markdown"], unsafe_allow_html=True)
     cols = st.columns(3)
@@ -194,6 +196,7 @@ if submitted:
                 partisan_5,
             ]
         ],
+        col_range="A:W",
     )
     st.success("Thanks! Your response was recorded. Want to rate another batch? :)")
     st.balloons()
