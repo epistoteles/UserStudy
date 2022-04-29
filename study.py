@@ -106,6 +106,8 @@ You are asked to rate **only the last comment** (here: _"A lot of people would d
 
 #### Sliders
 
+Please set the sliders under each comment to a position you think is appropriate. It does not matter that much where exactly you place the slider - it is more important that the relation of the slider positions among the five comments makes sense.
+
 ##### Civility
 How civil/uncivil is the comment?
 - **0**: completely civil  (_“I understand your opinion but must disagree.”_)
