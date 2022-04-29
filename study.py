@@ -94,9 +94,11 @@ You are presented with **five** comments from Reddit. These comments will be sho
 
 Here is an example of a comment in context:
 
+---
 > How...how could you think that? Every article for the last 4 months about Trump have been against him. Every move he makes is criticized. One glance from his wife makes him an abuser. His son looking bored makes him a psycho school shooter. It's literally non-stop negative media coverage.
 >> This is why Trump won, though. Who cares about all the small shit meaningless memes you just quoted? What about the actually bad shit he has said (and done)?
 >>> A lot of people would disagree on what is bad shit said and done however.
+---
 
 You are asked to rate **only the last comment** (here: _"A lot of people would disagree on what is bad shit said and done however."_)
 
