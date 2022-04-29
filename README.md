@@ -9,6 +9,8 @@ Try out submitting answers here: https://share.streamlit.io/epistoteles/userstud
 
 And watch the results show up in this document (_Responses_): https://docs.google.com/spreadsheets/d/1S7YBK5AqAE9GPHdZEto9WTPGOyLHSBP5EgDTejlG8dU/edit?usp=sharing
 
+Besides the answers themselves the app currently logs a unique session ID per connection, a timestamp, and how long it took the user to respond.
+
 ## How to use
 
 1. Fork this repository (the fork has to be public).
@@ -36,4 +38,5 @@ All assumptions about how the study works are included in the `study.py` file. T
 - where to write the answers to
 
 The code is sensitive to what columns are named in _Database_ and what names individual sheets have (_Database_, _Responses_).
-Feel free to play around with the code in study.py.  
+
+Feel free to play around with the code in study.py and change it as you desire! :)
